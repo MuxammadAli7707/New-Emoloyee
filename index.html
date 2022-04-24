@@ -55,10 +55,10 @@
             <i class='bx bx-search search-ikon' ></i>
             <input id="search" type="search" class="card__searching" placeholder="Search Employees">
           </div>
-          <button class="card-add" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Add New</button>
+          <button class="card-add" data-bs-toggle="modal" data-bs-target="#addedModal">+ Add New</button>
 
               <!-- Modal -->
-              <div class="modal fade"id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal fade"id="addedModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -111,7 +111,7 @@
                             <label class="form-check-label" for="inlineCheckbox1">Permanent Employee</label>
                           </div>
                           <div>
-                            <button id="addBtn" type="submit" class="form__btn border-0">Submit</button>
+                            <button id="addBtn" type="submit" data-bs-dismiss="modal" class="form__btn border-0">Submit</button>
                             <button class="form__reset border-0">Reset</button>
                           </div>
                         </div>
