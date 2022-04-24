@@ -60,23 +60,23 @@ function addItem(e) {
   elName.value = "";
   elEmail.value = "";
   elNumber.value = "";
-  elCity.value = "";  
+  elCity.value = "";
 
   const elRemove = document.querySelectorAll("#remove");
 
   elRemove.forEach((item) => {
     item.addEventListener("click", () => {
       item.parentNode.parentNode.remove();
-      newArr.forEach(item => {
-        delete item.name;
-        delete item.mail;
-        delete item.number;
-        delete item.cate;
-      })
     });
   });
-
 }
+
+// newArr.forEach(item => {
+//   delete item.name;
+//   delete item.mail;
+//   delete item.number;
+//   delete item.cate;
+// })
 
 function editCard(elId){
   console.log(elId);
@@ -92,16 +92,46 @@ function editCard(elId){
 }
 
 
+function editUpdate() {
+  elList.innerHTML = null;
+  for(let i = 0; i < newArr.length; i++) {
+    let li = document.createElement("li");
+    li.className = `result__item`;
+    li.innerHTML = `
+    <p class="result__text">${newArr[i].name}</p>
+    <p class="result__text">${newArr[i].mail}</p>
+    <p class="result__text">${newArr[i].number}</p>
+    <p class="result__text">${newArr[i].cate}</p>
+    <div>
+      <button class="result__edit border-0" onclick="editCard(${newArr[i].id})" data-bs-toggle="modal" data-bs-target="#editModal"><i class='bx bx-edit-alt'></i></button>
+      <button id="remove" class="result__del border-0"><i class='bx bx-x' ></i></button>
+    </div>
+    `;
+    elList.appendChild(li);
+  }
+
+  const elRemove = document.querySelectorAll("#remove");
+
+  elRemove.forEach((item) => {
+    item.addEventListener("click", () => {
+      item.parentNode.parentNode.remove();
+    });
+  });
+}
 
 function editItem(elId){
+  let a = 1;
   elFormEdit.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    newArr[elId - 1].name = elNameing.value;
-    newArr[elId - 1].mail = elEmailing.value;
-    newArr[elId - 1].number = elNumbering.value;
-    newArr[elId - 1].cate = elSelecting.value;
-
+    if(a == 1){
+      newArr[elId - 1].name = elNameing.value;
+      newArr[elId - 1].mail = elEmailing.value;
+      newArr[elId - 1].number = elNumbering.value;
+      newArr[elId - 1].cate = elSelecting.value;
+      editUpdate(newArr);
+      a++;
+    }
   });
 }
 
@@ -124,3 +154,7 @@ function filterItems(e) {
     }
   }
 }
+
+
+
+
