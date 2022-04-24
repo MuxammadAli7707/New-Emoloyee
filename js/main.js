@@ -1,5 +1,11 @@
 const elForm = document.getElementById("form");
+const elFormEdit = document.getElementById("form-edit");
 const elName = document.getElementById("name");
+const elNameing = document.getElementById("nameing");
+const elEmailing = document.getElementById("emailing");
+const elNumbering = document.getElementById("numbering");
+const elSelecting = document.getElementById("selecting");
+const elCitying = document.getElementById("citying");
 const elEmail = document.getElementById("email");
 const elNumber = document.getElementById("number");
 const elSelect = document.getElementById("select");
@@ -9,7 +15,8 @@ const addBtn = document.getElementById("addBtn");
 const elList = document.getElementById("list");
 const newArr = [];
 let count = 1;
-form.addEventListener('submit', addItem);
+
+elForm.addEventListener('submit', addItem);
 
 function addItem(e) {
   e.preventDefault();
@@ -41,7 +48,7 @@ function addItem(e) {
     <p class="result__text">${newArr[i].number}</p>
     <p class="result__text">${newArr[i].cate}</p>
     <div>
-      <button class="result__edit border-0" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class='bx bx-edit-alt'></i></button>
+      <button class="result__edit border-0" onclick="editCard(${newArr[i].id})" data-bs-toggle="modal" data-bs-target="#editModal"><i class='bx bx-edit-alt'></i></button>
       <button id="remove" class="result__del border-0"><i class='bx bx-x' ></i></button>
     </div>
     `;
@@ -71,77 +78,32 @@ function addItem(e) {
 
 }
 
-// let count = 1
-
-// form.addEventListener('submit', addItem);
-
-// function addItem(e) {
-//   e.preventDefault();
-
-//   let elFname = elName.value;
-//   let elMail = elEmail.value;
-//   let elNum = elNumber.value;
-//   let elCategory = elSelect.value;
-
-
-//   newArr.push(
-//     {
-//       id: count,
-//       name: elFname,
-//       mail: elMail,
-//       number: elNum,
-//       cate: elCategory
-//     });
-
-//     console.log(newArr);
-
-//     updateBaza()
-
-//     count++;
-//     elName.value = "";
-//     elEmail.value = "";
-//     elNumber.value = "";
-//     elCity.value = "";
-// }
+function editCard(elId){
+  console.log(elId);
+  newArr.forEach(item => {
+    if(elId === item.id){
+      elNameing.value = item.name;
+      elEmailing.value = item.mail;
+      elNumbering.value = item.number;
+      elSelecting.value = item.cate;
+      editItem(elId);
+    }
+  });
+}
 
 
-// const elRemove = document.querySelectorAll("#remove");
 
-//   elRemove.forEach((item) => {
-//     item.addEventListener("click", () => {
-//       let ids = item.parentNode.parentNode.id;
-//       // console.log(item);
+function editItem(elId){
+  elFormEdit.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-//       newArr.forEach(item => {
-//         if(ids == item.id) {
-//           newArr = newArr.filter(indexs = indexs != item)
-//         }
+    newArr[elId - 1].name = elNameing.value;
+    newArr[elId - 1].mail = elEmailing.value;
+    newArr[elId - 1].number = elNumbering.value;
+    newArr[elId - 1].cate = elSelecting.value;
 
-//         updateBaza()
-//       })
-//     });
-//   });
-
-
-// function updateBaza() {
-//   for(let i = 0; i < newArr.length; i++) {
-//     let li = document.createElement("li");
-//     li.className = `result__item`;
-//     li.id = newArr.id;
-//     li.innerHTML = `
-//     <p class="result__text">${newArr[i].name}</p>
-//     <p class="result__text">${newArr[i].mail}</p>
-//     <p class="result__text">${newArr[i].number}</p>
-//     <p class="result__text">${newArr[i].cate}</p>
-//     <div>
-//       <button class="result__edit border-0"><i class='bx bx-edit-alt'></i></button>
-//       <button id="remove" class="result__del border-0"><i class='bx bx-x' ></i></button>
-//     </div>
-//     `;
-
-//     elList.appendChild(li);
-//   }
-// }
+  });
+}
 
 const elSearch = document.getElementById("search");
 
