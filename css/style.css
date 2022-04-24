@@ -131,8 +131,12 @@ body {
   color: #333996;
   font-weight: 600;
   margin: 0;
+  width: 20%;
 }
 
+.text__main:nth-child(2){
+  margin-right: 40px;
+}
 .form {
   padding: 16px 24px;
 }
@@ -215,7 +219,6 @@ body {
 
 .result__item {
   display: flex;
-  justify-content: space-between;
   padding: 20px;
   border-bottom: 2px solid rgba(224, 224, 224, 1); 
 }
@@ -228,8 +231,11 @@ body {
   font-weight: 300;
   font-size: 17px;
   margin: 0;
+  width: 20%;
 }
-
+.result__text:nth-child(2){
+  margin-right: 20px;
+}
 .result__edit {
   padding: 1px 7px;
   margin-right: 4px;
