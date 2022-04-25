@@ -65,8 +65,12 @@ function addItem(e) {
   const elRemove = document.querySelectorAll("#remove");
 
   elRemove.forEach((item) => {
-    item.addEventListener("click", () => {
-      item.parentNode.parentNode.remove();
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      
+      if(confirm("Are you sure you want to delete it?")){
+        item.parentNode.parentNode.remove();
+      }; 
     });
   });
 }
@@ -109,14 +113,6 @@ function editUpdate() {
     `;
     elList.appendChild(li);
   }
-
-  const elRemove = document.querySelectorAll("#remove");
-
-  elRemove.forEach((item) => {
-    item.addEventListener("click", () => {
-      item.parentNode.parentNode.remove();
-    });
-  });
 }
 
 function editItem(elId){
