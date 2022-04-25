@@ -152,5 +152,27 @@ function filterItems(e) {
 }
 
 
+// class Square {
+//   constructor(_width){
+//     this.width = _width;
+//     this.height = _width;
+//     this.num = 0;
+//   }
 
+//   get area(){
+//     this.num++;
+//     return this.width * this.height;
+//   }
 
+//   set area(value){
+//     this.width = Math.sqrt(value);
+//     this.height = this.width;
+//   }
+// }
+
+// let Square1 = new Square(25);
+// console.log(Square1.area);
+// console.log(Square1.area);
+// console.log(Square1);
+// Square1.area = 100;
+// console.log(Square1.width);
