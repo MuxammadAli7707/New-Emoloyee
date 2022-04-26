@@ -166,6 +166,33 @@ elTxt.addEventListener("click", ()=> {
   editUpdate()
 })
 
+const elTxting = document.getElementById("txting");
+elTxting.addEventListener("click", ()=> {
+  newArr.sort((c, e) => {
+    if(c.mail > e.mail) {
+      return 1 
+    }
+    if(c.mail < e.mail) {
+      return -1 
+    }
+    return 0
+  })
+  editUpdate()
+})
+
+const elNuming = document.getElementById("numing");
+elNuming.addEventListener("click", ()=> {
+  newArr.sort((f, g) => {
+    if(f.number > g.number) {
+      return 1 
+    }
+    if(f.mail < g.mail) {
+      return -1 
+    }
+    return 0
+  })
+  editUpdate()
+})
 // class Square {
 //   constructor(_width){
 //     this.width = _width;
